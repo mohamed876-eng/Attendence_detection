@@ -1,0 +1,1677 @@
+/* ==========================================================================
+   Hadir — Biometric Student Attendance Hero Stylesheet
+   Theme: Pure Black Background (#000000), White Headline (#FFFFFF),
+   Highlight Orange (#FF9845), Light Gray Subtitle (#A6ADB9),
+   Crisp White Brackets (#FFFFFF), Orange Duotone Portraits
+   ========================================================================== */
+
+:root {
+  --bg-black: #000000;
+  --bg-card: #0A0A0C;
+  --text-white: #FFFFFF;
+  --text-light-gray: #A6ADB9;
+  --text-muted: #6B7280;
+  --orange-accent: #FF9845;
+  --orange-primary: #FF7A00;
+  --orange-glow: rgba(255, 152, 69, 0.22);
+  --bracket-white: #FFFFFF;
+  --scene-black: #000000;
+  --charcoal-border: rgba(255, 255, 255, 0.08);
+  --charcoal-border-hover: rgba(255, 255, 255, 0.18);
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   Layout Wrapper
+   ========================================== */
+.hadir-app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-black);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(255, 152, 69, 0.04) 0px, transparent 45%),
+    radial-gradient(at 100% 100%, rgba(255, 122, 0, 0.03) 0px, transparent 50%);
+}
+
+/* ==========================================
+   Minimalist Navigation Header
+   ========================================== */
+.hadir-navbar {
+  width: 100%;
+  padding: 1rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.hadir-nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hadir-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hadir-logo-mark {
+  width: 28px;
+  height: 28px;
+  background: #0D0F14;
+  border: 1px solid var(--charcoal-border);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hadir-logo-bracket-l {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  border-left: 1.5px solid #FFFFFF;
+  border-top: 1.5px solid #FFFFFF;
+  border-bottom: 1.5px solid #FFFFFF;
+}
+
+.hadir-logo-bracket-r {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  border-right: 1.5px solid #FFFFFF;
+  border-top: 1.5px solid #FFFFFF;
+  border-bottom: 1.5px solid #FFFFFF;
+}
+
+.hadir-logo-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--orange-accent);
+  box-shadow: 0 0 6px var(--orange-accent);
+}
+
+.hadir-brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+}
+
+.hadir-version-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 152, 69, 0.3);
+  background-color: rgba(255, 152, 69, 0.08);
+  color: var(--orange-accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hadir-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.hadir-nav-links .nav-link {
+  font-size: 0.88rem;
+  font-weight: 450;
+  color: var(--text-light-gray);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.hadir-nav-links .nav-link:hover {
+  color: var(--orange-accent);
+}
+
+/* Minimalist Nav Actions */
+.hadir-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.hadir-nav-btn-ghost {
+  padding: 0.45rem 0.95rem;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text-light-gray);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.hadir-nav-btn-ghost:hover {
+  color: var(--text-white);
+}
+
+.hadir-nav-btn-minimal {
+  padding: 0.45rem 1rem;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text-white);
+  background: transparent;
+  border: 1px solid var(--charcoal-border);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hadir-nav-btn-minimal:hover {
+  border-color: var(--orange-accent);
+  color: var(--orange-accent);
+  background: rgba(255, 152, 69, 0.05);
+}
+
+/* ==========================================
+   Hero Section
+   ========================================== */
+.hadir-hero-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 2rem 5rem;
+  background-color: var(--bg-black);
+}
+
+.hadir-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 5rem;
+}
+
+/* ==========================================
+   Left Column: Animated Scene
+   (Seamlessly integrated directly into the black canvas)
+   ========================================== */
+.hadir-hero-scene-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hadir-hero-scene {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  min-height: 420px;
+  background-color: #000000;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* Duotone Portrait */
+.hadir-duotone-portrait {
+  filter: contrast(1.12) brightness(1.02) saturate(1.2);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Focus Brackets Styling: 4 Thin White L-shaped Corners */
+.corner-l {
+  box-sizing: border-box;
+  transition: all 0.15s ease-out;
+}
+
+.hadir-focus-brackets-container.is-locked .corner-l {
+  border-color: #FFFFFF !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) !important;
+}
+
+/* ==========================================
+   Right Column: Hero Text
+   ========================================== */
+.hadir-hero-content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.hadir-hero-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* Eyebrow Badge */
+.hadir-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+  padding: 0.3rem 0.85rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--charcoal-border);
+  border-radius: 999px;
+}
+
+.hadir-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--orange-accent);
+  box-shadow: 0 0 6px var(--orange-accent);
+  animation: hadir-pulse 2s infinite ease-in-out;
+}
+
+@keyframes hadir-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(255, 152, 69, 0.25);
+  }
+
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 152, 69, 0.05);
+  }
+}
+
+.hadir-eyebrow-text {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-light-gray);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Headline in White with Orange Highlight */
+.hadir-hero-headline {
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--text-white);
+}
+
+.hadir-highlight-orange {
+  color: var(--orange-accent);
+}
+
+/* Subtitle in Light Gray */
+.hadir-hero-subtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-light-gray);
+  max-width: 520px;
+}
+
+/* Minimalist Action Buttons */
+.hadir-hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.25rem;
+}
+
+.hadir-btn-minimal-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  background-color: transparent;
+  color: var(--text-white);
+  border: 1px solid var(--orange-accent);
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hadir-btn-minimal-primary:hover {
+  background-color: var(--orange-accent);
+  color: #000000;
+  box-shadow: 0 0 18px var(--orange-glow);
+  transform: translateY(-1px);
+}
+
+.hadir-btn-minimal-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  background-color: transparent;
+  color: var(--text-light-gray);
+  border: 1px solid var(--charcoal-border);
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hadir-btn-minimal-secondary:hover {
+  border-color: #FFFFFF;
+  color: var(--text-white);
+  background-color: rgba(255, 249, 249, 0.04);
+}
+
+/* Minimalist Metrics Strip */
+.hadir-hero-metrics {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 1.1rem 1.4rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--charcoal-border);
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.hadir-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hadir-metric-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+}
+
+.hadir-metric-label {
+  font-size: 0.74rem;
+  font-weight: 450;
+  color: var(--text-muted);
+}
+
+.hadir-metric-divider {
+  width: 1px;
+  height: 28px;
+  background-color: var(--charcoal-border);
+}
+
+/* Trust Strip */
+.hadir-trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 0.15rem;
+}
+
+.hadir-trust-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.hadir-avatar-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--bg-black);
+  margin-right: -3px;
+}
+
+.dot-1 {
+  background-color: var(--orange-accent);
+}
+
+.dot-2 {
+  background-color: #FFFFFF;
+}
+
+.dot-3 {
+  background-color: #00E676;
+}
+
+.hadir-trust-text {
+  font-size: 0.82rem;
+  font-weight: 450;
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   Responsive Breakpoints
+   "On mobile, stack the scene above the headline."
+   ========================================== */
+@media (max-width: 960px) {
+  .hadir-hero-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .hadir-hero-scene-column {
+    order: 1;
+    width: 100%;
+  }
+
+  .hadir-hero-content-column {
+    order: 2;
+    width: 100%;
+  }
+
+  .hadir-hero-headline {
+    font-size: 2.85rem;
+  }
+
+  .hadir-hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .hadir-nav-links {
+    display: none;
+  }
+
+  .hadir-hero-metrics {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 540px) {
+  .hadir-hero-section {
+    padding: 1.5rem 1.25rem 3.5rem;
+  }
+
+  .hadir-hero-headline {
+    font-size: 2.25rem;
+  }
+
+  .hadir-hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hadir-btn-minimal-primary,
+  .hadir-btn-minimal-secondary {
+    justify-content: center;
+  }
+
+  .hadir-hero-metrics {
+    gap: 0.85rem;
+    padding: 1rem 0.85rem;
+  }
+
+  .hadir-metric-value {
+    font-size: 1.2rem;
+  }
+
+  .hadir-metric-label {
+    font-size: 0.72rem;
+  }
+}
+
+/* ==========================================
+   Reduced Motion Mode
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hadir-pulse-dot {
+    animation: none !important;
+  }
+
+  .hud-scanner-bar {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   About Section
+   Theme: Pure Black (#000000), Orange Accent (#FF9845)
+   Headline: Start class without the roll call.
+   Text on left, Hadir-Unrolling scroll on right sitting directly on black bg.
+   ========================================================================== */
+
+.hadir-about-section {
+  width: 100%;
+  padding: 6.5rem 2.5rem 0;
+  background-color: var(--bg-black);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--charcoal-border);
+}
+
+.hadir-about-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+/* Left Column: Text Content */
+.hadir-about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 7rem;
+  padding-bottom: 5.5rem;
+  z-index: 2;
+}
+
+.hadir-about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 152, 69, 0.08);
+  border: 1px solid rgba(255, 152, 69, 0.28);
+  color: var(--orange-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.hadir-about-title {
+  font-size: 3.1rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--text-white);
+  margin-bottom: 1.5rem;
+}
+
+.hadir-about-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-light-gray);
+  max-width: 530px;
+  margin-bottom: 2rem;
+}
+
+.hadir-about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 530px;
+}
+
+.hadir-about-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-white);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hadir-about-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 152, 69, 0.15);
+  border: 1px solid rgba(255, 152, 69, 0.35);
+  color: var(--orange-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Right Column: Scroll Animation Media */
+.hadir-about-media {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+}
+
+.hadir-about-scroll-img {
+  width: 100%;
+  max-width: 490px;
+  height: auto;
+  display: block;
+  /* Wooden clamp stays fully visible at the top,
+     while paper runs past the bottom edge of the section */
+  margin-bottom: -75px;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
+  user-select: none;
+}
+
+/* Responsive Tablet & Mobile */
+@media (max-width: 960px) {
+  .hadir-about-section {
+    padding: 5rem 2rem 0;
+  }
+
+  .hadir-about-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hadir-about-text {
+    padding-bottom: 0;
+    max-width: 100%;
+  }
+
+  .hadir-about-title {
+    font-size: 2.4rem;
+  }
+
+  .hadir-about-description {
+    max-width: 100%;
+    font-size: 1.05rem;
+  }
+
+  .hadir-about-media {
+    justify-content: center;
+  }
+
+  .hadir-about-scroll-img {
+    max-width: 420px;
+    margin-bottom: -50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hadir-about-section {
+    padding: 4rem 1.25rem 0;
+  }
+
+  .hadir-about-title {
+    font-size: 2rem;
+  }
+
+  .hadir-about-description {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .hadir-about-scroll-img {
+    max-width: 340px;
+    margin-bottom: -35px;
+  }
+}
+
+/* ==========================================================================
+   Testimonials Section
+   Theme: Pure Black (#000000), Charcoal Cards (#0D0F14),
+   Orange Accents (#FF9845), Crisp White Text (#FFFFFF)
+   ========================================================================== */
+
+.hadir-testimonials-section {
+  width: 100%;
+  padding: 6rem 2.5rem 7rem;
+  background-color: var(--bg-black);
+  position: relative;
+  border-top: 1px solid var(--charcoal-border);
+}
+
+.hadir-testimonials-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Stationary Section Header */
+.hadir-testimonials-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.hadir-testimonials-header-content {
+  max-width: 680px;
+}
+
+.hadir-testimonials-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 152, 69, 0.08);
+  border: 1px solid rgba(255, 152, 69, 0.28);
+  color: var(--orange-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.hadir-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--orange-accent);
+  box-shadow: 0 0 8px var(--orange-accent);
+}
+
+.hadir-testimonials-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.035em;
+  color: var(--text-white);
+  margin-bottom: 0.85rem;
+}
+
+.hadir-testimonials-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-light-gray);
+  line-height: 1.6;
+}
+
+/* Pause / Play Control Button */
+.hadir-testimonials-actions {
+  display: flex;
+  align-items: center;
+}
+
+.hadir-motion-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  background: #0D0F14;
+  border: 1px solid var(--charcoal-border);
+  border-radius: 9999px;
+  color: var(--text-light-gray);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  user-select: none;
+}
+
+.hadir-motion-toggle-btn:hover {
+  background: rgba(255, 152, 69, 0.08);
+  border-color: rgba(255, 152, 69, 0.45);
+  color: var(--text-white);
+  transform: translateY(-1px);
+}
+
+.hadir-motion-toggle-btn:focus-visible {
+  outline: 2px solid var(--orange-accent);
+  outline-offset: 2px;
+}
+
+.hadir-toggle-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Viewport for Moving Masonry Area */
+.hadir-testimonials-viewport {
+  position: relative;
+  height: 640px;
+  overflow: hidden;
+  border-radius: 20px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* Subtle Top and Bottom Fade Overlays */
+.hadir-testimonials-fade-top,
+.hadir-testimonials-fade-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 95px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.hadir-testimonials-fade-top {
+  top: 0;
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.85) 35%, transparent 100%);
+}
+
+.hadir-testimonials-fade-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.85) 35%, transparent 100%);
+}
+
+/* 3-Column Masonry Grid */
+.hadir-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.hadir-testimonials-col {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+/* Tracks & Sequences for Seamless Infinite Loops */
+.hadir-testimonial-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  will-change: transform;
+}
+
+.hadir-testimonial-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  /* Exactly matches gap for zero jump between loop boundaries */
+}
+
+/* Infinite Drift Keyframes */
+@keyframes driftUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes driftDown {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Speeds: outer columns drift upward, middle column drifts downward */
+.drift-up {
+  animation: driftUp 38s linear infinite;
+}
+
+.drift-down {
+  animation: driftDown 42s linear infinite;
+}
+
+.drift-up-staggered {
+  animation: driftUp 40s linear infinite;
+}
+
+/* Pause on hover so quotes can be comfortably read */
+.hadir-testimonials-viewport:hover .drift-up,
+.hadir-testimonials-viewport:hover .drift-down {
+  animation-play-state: paused;
+}
+
+/* Manual Pause control */
+.hadir-testimonials-viewport.is-paused .drift-up,
+.hadir-testimonials-viewport.is-paused .drift-down {
+  animation-play-state: paused !important;
+}
+
+/* Testimonial Card Styling */
+.hadir-testimonial-card {
+  background: #0D0F14;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem 1.4rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.hadir-testimonial-card:hover,
+.hadir-testimonial-card:focus-visible {
+  border-color: rgba(255, 152, 69, 0.4);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65), 0 0 16px rgba(255, 152, 69, 0.08);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.hadir-testimonial-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.hadir-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.hadir-testimonial-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 152, 69, 0.45);
+  background: #161820;
+  flex-shrink: 0;
+}
+
+.hadir-testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.hadir-testimonial-name {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hadir-testimonial-dept {
+  font-size: 0.78rem;
+  color: var(--text-light-gray);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Five-Star Rating Component */
+.hadir-star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.hadir-star-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.hadir-star-filled {
+  fill: var(--orange-accent);
+  color: var(--orange-accent);
+}
+
+.hadir-star-outline {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1.5;
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* Quote Text — staggered natural height */
+.hadir-testimonial-quote {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #D3D8E2;
+  margin: 0;
+  font-style: normal;
+  word-break: break-word;
+}
+
+.hadir-testimonial-footer {
+  display: flex;
+  align-items: center;
+  margin-top: 0.15rem;
+}
+
+.hadir-testimonial-demo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hadir-testimonial-demo-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--orange-accent);
+}
+
+/* Static Grid for Reduced-Motion mode */
+.hadir-testimonials-static-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ==========================================
+   Responsive Breakpoints for Testimonials
+   Desktop: 3 columns | Tablet: 2 columns | Mobile: 1 column
+   ========================================== */
+@media (max-width: 1024px) {
+  .hadir-testimonials-section {
+    padding: 5rem 2rem 6rem;
+  }
+
+  .hadir-testimonials-title {
+    font-size: 2.3rem;
+  }
+
+  .hadir-testimonials-viewport {
+    height: 580px;
+  }
+
+  .hadir-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .hadir-testimonials-col-3 {
+    display: none;
+  }
+
+  .hadir-testimonial-sequence {
+    gap: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .hadir-testimonials-static-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hadir-testimonials-section {
+    padding: 4rem 1.25rem 5rem;
+  }
+
+  .hadir-testimonials-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .hadir-testimonials-title {
+    font-size: 1.95rem;
+  }
+
+  .hadir-testimonials-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hadir-testimonials-viewport {
+    height: 520px;
+  }
+
+  .hadir-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .hadir-testimonials-col-2,
+  .hadir-testimonials-col-3 {
+    display: none;
+  }
+
+  .hadir-testimonial-sequence {
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .hadir-testimonials-static-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+/* ==========================================
+   Team Section (before footer)
+   ========================================== */
+.hadir-team-section {
+  width: 100%;
+  padding: 6rem 2.5rem 6.5rem;
+  background-color: var(--bg-black);
+  position: relative;
+  border-top: 1px solid var(--charcoal-border);
+}
+
+.hadir-team-block {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hadir-team-header {
+  margin-bottom: 3rem;
+  max-width: 680px;
+}
+
+.hadir-team-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--text-white);
+  margin-bottom: 0.85rem;
+}
+
+.hadir-team-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-light-gray);
+  max-width: 560px;
+}
+
+.hadir-team-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 480px) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.hadir-team-card-side {
+  width: 100%;
+  min-width: 0;
+}
+
+.hadir-team-lanyard-canvas {
+  width: 100%;
+  height: 560px;
+  position: relative;
+}
+
+.hadir-team-index-below {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.hadir-team-member-index {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--orange-accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.hadir-team-detail-side {
+  min-width: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+.hadir-team-member-name {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.hadir-team-member-role {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--orange-accent);
+  margin-bottom: 0.25rem;
+}
+
+.hadir-team-member-dept {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.hadir-team-member-desc {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #C8CED8;
+  max-width: 100%;
+  border-left: 2px solid rgba(255, 152, 69, 0.45);
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+.hadir-footer {
+  width: 100%;
+  background: linear-gradient(180deg, #050506 0%, #000000 100%);
+  border-top: 1px solid var(--charcoal-border);
+  padding: 4.5rem 2.5rem 2rem;
+  color: var(--text-light-gray);
+  position: relative;
+}
+
+.hadir-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,152,69,0.35), transparent);
+  pointer-events: none;
+}
+
+.hadir-footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.hadir-footer-brand {
+  max-width: 420px;
+}
+
+.hadir-footer-brand .hadir-logo-wrap {
+  margin-bottom: 1.1rem;
+}
+
+.hadir-footer-tagline {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-light-gray);
+  max-width: 38ch;
+}
+
+.hadir-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 2.5rem;
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+}
+
+.hadir-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.hadir-footer-heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-white);
+  margin-bottom: 0.4rem;
+}
+
+.hadir-footer-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+a.hadir-footer-link:hover {
+  color: var(--orange-accent);
+  transform: translateX(2px);
+}
+
+.hadir-footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #6B7280;
+}
+
+.hadir-footer-bottom-note {
+  color: rgba(255, 152, 69, 0.7);
+  font-weight: 500;
+}
+
+/* Team & footer responsive */
+@media (max-width: 960px) {
+  .hadir-team-section { padding: 5rem 2rem 5.5rem; }
+  .hadir-team-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .hadir-team-card-side { max-width: 520px; margin: 0 auto; }
+  .hadir-team-lanyard-canvas { height: 500px; }
+  .hadir-team-title { font-size: 2.2rem; }
+  .hadir-footer { padding: 4rem 2rem 2rem; }
+  .hadir-footer-container { grid-template-columns: 1fr; gap: 2.75rem; }
+  .hadir-footer-links { justify-self: start; max-width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .hadir-team-section { padding: 4rem 1.25rem 4.5rem; }
+  .hadir-team-title { font-size: 1.9rem; }
+  .hadir-team-subtitle { font-size: 0.95rem; }
+  .hadir-team-lanyard-canvas { height: 440px; }
+  .hadir-team-member-desc { font-size: 0.98rem; line-height: 1.7; padding-left: 1rem; }
+  .hadir-footer { padding: 3.25rem 1.25rem 1.5rem; }
+  .hadir-footer-links { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .hadir-footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+
+/* ==========================================
+   Team Lanyard (single card + arrows)
+   ========================================== */
+.hadir-team-lanyard-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.hadir-team-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--charcoal-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hadir-team-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+.hadir-team-arrow:hover {
+  border-color: var(--orange-accent);
+  color: var(--orange-accent);
+  background: rgba(255, 152, 69, 0.08);
+  box-shadow: 0 0 18px rgba(255, 152, 69, 0.15);
+  transform: translateY(-1px);
+}
+
+.hadir-team-arrow:focus-visible {
+  outline: 2px solid var(--orange-accent);
+  outline-offset: 2px;
+}
+
+.hadir-team-lanyard-stage {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hadir-team-lanyard-canvas {
+  width: 100%;
+  max-width: 520px;
+  height: 560px;
+  position: relative;
+}
+
+.hadir-team-member-info {
+  text-align: center;
+  padding: 0.25rem 1rem 0;
+}
+
+.hadir-team-member-index {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--orange-accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.45rem;
+}
+
+.hadir-team-member-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.hadir-team-member-role {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--orange-accent);
+  margin-bottom: 0.2rem;
+}
+
+.hadir-team-member-dept {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 960px) {
+  .hadir-team-lanyard-canvas {
+    height: 500px;
+    max-width: 460px;
+  }
+  .hadir-team-member-name { font-size: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  .hadir-team-lanyard-wrap {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "stage stage"
+      "prev next";
+    gap: 1rem;
+  }
+  .hadir-team-lanyard-stage { grid-area: stage; }
+  .hadir-team-arrow { width: 100%; border-radius: 10px; height: 46px; }
+  .hadir-team-lanyard-wrap > .hadir-team-arrow:first-child { grid-area: prev; }
+  .hadir-team-lanyard-wrap > .hadir-team-arrow:last-child { grid-area: next; }
+  .hadir-team-lanyard-canvas { height: 440px; max-width: 100%; }
+  .hadir-team-member-name { font-size: 1.35rem; }
+}
+
+/* Nav active */
+.hadir-nav-links .nav-link.is-active { color: var(--orange-accent); }
+.hadir-nav-btn-minimal { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+
+/* ==========================================
+   Scan Page
+   ========================================== */
+.hadir-scan-page {
+  flex: 1;
+  padding: 4rem 2.5rem 5.5rem;
+  background: var(--bg-black);
+}
+
+.hadir-scan-container { max-width: 1240px; margin: 0 auto; }
+.hadir-scan-header { max-width: 720px; margin-bottom: 2.75rem; }
+.hadir-scan-title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+}
+.hadir-scan-subtitle { font-size: 1.05rem; line-height: 1.7; color: var(--text-light-gray); max-width: 62ch; }
+
+.hadir-scan-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.hadir-scan-camera-card, .hadir-scan-result-card {
+  background: #0D0F14;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.hadir-scan-camera-top {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: var(--text-light-gray); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.hadir-scan-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #6B7280; }
+.hadir-scan-live-dot[data-status="scanning"] { background: var(--orange-accent); box-shadow: 0 0 10px var(--orange-accent); animation: hadir-pulse 1.2s infinite; }
+.hadir-scan-live-dot[data-status="success"] { background: #22c55e; box-shadow: 0 0 10px rgba(34,197,94,0.6); }
+.hadir-scan-live-dot[data-status="error"] { background: #ef4444; }
+
+.hadir-scan-camera-zone {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  margin: 1.25rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.hadir-scan-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hadir-scan-overlay { position: absolute; inset: 0; pointer-events: none; }
+.hadir-scan-corner { position: absolute; width: 28px; height: 28px; border-color: rgba(255,255,255,0.85); border-style: solid; }
+.hadir-scan-corner.tl { top: 16px; left: 16px; border-width: 2px 0 0 2px; }
+.hadir-scan-corner.tr { top: 16px; right: 16px; border-width: 2px 2px 0 0; }
+.hadir-scan-corner.bl { bottom: 16px; left: 16px; border-width: 0 0 2px 2px; }
+.hadir-scan-corner.br { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; }
+.hadir-scan-line {
+  position: absolute; left: 10%; right: 10%; height: 2px; top: 10%;
+  background: linear-gradient(90deg, transparent, var(--orange-accent), transparent);
+  box-shadow: 0 0 14px rgba(255,152,69,0.7);
+  animation: hadir-scan-sweep 1.8s linear infinite;
+}
+@keyframes hadir-scan-sweep { 0% { top: 12%; opacity: .2; } 50% { opacity: 1; } 100% { top: 88%; opacity: .2; } }
+
+.hadir-scan-placeholder {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+  color: #4B5563; font-size: 0.9rem; background: radial-gradient(circle at center, rgba(255,152,69,0.04), transparent 65%);
+}
+.hadir-scan-placeholder svg { width: 52px; height: 52px; opacity: 0.55; }
+
+.hadir-scan-actions { padding: 0 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-start; }
+.hadir-scan-actions .hadir-btn-minimal-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+.hadir-scan-status { font-size: 0.88rem; color: var(--text-muted); }
+.hadir-scan-status[data-status="success"] { color: #4ade80; }
+.hadir-scan-status[data-status="error"] { color: #f87171; }
+.hadir-scan-status[data-status="scanning"] { color: var(--orange-accent); }
+
+.hadir-scan-result-card { padding: 1.5rem; display: flex; flex-direction: column; }
+.hadir-scan-result-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.25rem; }
+.hadir-scan-result-title { font-size: 1.35rem; font-weight: 700; color: var(--text-white); letter-spacing: -0.02em; }
+.hadir-scan-result-badge {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem; border-radius: 999px; color: var(--text-muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+}
+.hadir-scan-result-badge.is-success { color: #22c55e; background: rgba(34,197,94,0.08); border-color: rgba(34,197,94,0.25); }
+
+.hadir-scan-result-body { display: flex; flex-direction: column; gap: 0; }
+.hadir-scan-result-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.hadir-scan-result-label { font-size: 0.84rem; color: var(--text-muted); }
+.hadir-scan-result-value { font-size: 0.92rem; color: var(--text-white); font-weight: 550; text-align: right; }
+.hadir-scan-confidence { color: var(--orange-accent); font-family: var(--font-mono); }
+.hadir-scan-result-success {
+  margin-top: 1.25rem; display: flex; align-items: center; gap: 0.65rem;
+  padding: 0.9rem 1rem; border-radius: 10px; background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.18);
+  color: #86efac; font-size: 0.88rem;
+}
+.hadir-scan-result-empty {
+  flex: 1; min-height: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.4rem;
+  color: var(--text-muted); font-size: 0.92rem; padding: 2rem 1rem;
+  border: 1px dashed rgba(255,255,255,0.08); border-radius: 14px;
+}
+.hadir-scan-result-empty p:first-child { color: var(--text-light-gray); font-weight: 500; }
+
+@media (max-width: 960px) {
+  .hadir-scan-layout { grid-template-columns: 1fr; }
+  .hadir-scan-result-empty { min-height: 180px; }
+}
+@media (max-width: 640px) {
+  .hadir-scan-page { padding: 3rem 1.25rem 4rem; }
+  .hadir-scan-camera-zone { margin: 1rem; }
+  .hadir-scan-actions { padding: 0 1rem 1rem; }
+  .hadir-scan-actions .hadir-btn-minimal-primary { width: 100%; justify-content: center; }
+}
+
+.hadir-scan-actions-row { display: flex; gap: 0.75rem; flex-wrap: wrap; width: 100%; }
+.hadir-scan-stop-btn { border-color: rgba(239,68,68,0.35); color: #fca5a5; }
+.hadir-scan-stop-btn:hover:not(:disabled) { border-color: #ef4444; color: #fff; background: rgba(239,68,68,0.1); }
+.hadir-scan-stop-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+@media (max-width: 640px) { .hadir-scan-actions-row .hadir-btn-minimal-secondary { width: 100%; justify-content: center; } }
+.hadir-scan-result-badge.is-pending { color: var(--orange-accent); background: rgba(255,152,69,0.08); border-color: rgba(255,152,69,0.25); }
+.hadir-scan-live-dot[data-status="pending"] { background: var(--orange-accent); box-shadow: 0 0 10px rgba(255,152,69,0.55); }
+.hadir-scan-status[data-status="pending"] { color: var(--orange-accent); }
